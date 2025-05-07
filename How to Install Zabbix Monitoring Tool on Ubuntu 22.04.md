@@ -2,9 +2,7 @@
 
 # How to Install Zabbix Monitoring Tool on Ubuntu 22.04
 
-
 Zabbix is an open-source monitoring tool designed for enterprise-level monitoring of IT environments, including servers, networks, applications, and services. It helps organizations proactively monitor and manage their IT infrastructure by collecting metrics, analyzing data, and generating alerts or notifications.
-
 
 
 ## Update & upgrade the system.
@@ -38,7 +36,7 @@ First Update your system to ensure all packages are up to date
     sudo apt install mariadb-server -y
 
 
-Start and enable MariaDB to runboot.oot,
+Start and enable MariaDB to run on boot.
 
     sudo systemctl start mariadb
     sudo systemctl enable mariadb
@@ -69,7 +67,7 @@ Note: Replace 'zabbix' with a secure password of your choice.
 
 **Add Zabbix Repository:**
 
-Run the following commands to install the Zabbix repository, Download Zabbix repository for Ubuntu 22.04 (Zabbix 7.2)
+Run the following commands to install the Zabbix repository: Download Zabbix repository for Ubuntu 22.04 (Zabbix 7.2)
 
 
     wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu22.04_all.deb
@@ -92,7 +90,7 @@ Run the following commands to install the Zabbix repository, Download Zabbix rep
 Enter the password for the Zabbix MySQL user when prompted.
 
 
-Disable log_bin_trust_function_creators option after importing databse schema.
+Disable log_bin_trust_function_creators option after importing the database schema.
 
 
 Enter the MariaDB root password when prompted. Create the Zabbix database and user
@@ -104,15 +102,14 @@ quit;
 
 
 
-Configure Zabbix Server Database
-________________________________________
+## Configure Zabbix Server Database
 
-Edit the Zabbix server configuration file to set the database password, Open the Zabbix server configuration file,
+Edit the Zabbix server configuration file to set the database password. Open the Zabbix server configuration file.
 
     sudo nano /etc/zabbix/zabbix_server.conf
 
 
-Find the DBPassword line and update it with your database password,
+Find the DBPassword line and update it with your database password.
 
     DBHost=localhost
     DBName=zabbix
@@ -122,17 +119,17 @@ Find the DBPassword line and update it with your database password,
 Note: Replace Your_Password_Here with your actual Strong Password
 
 
-Configure PHP for Zabbix Frontend
-________________________________________
+## Configure PHP for Zabbix Frontend
 
-Edit the Apache configuration file for Zabbix frontend to enable PHP, Open the Zabbix Apache configuration file,
+
+Edit the Apache configuration file for Zabbix frontend to enable PHP. Open the Zabbix Apache configuration file.
 
 
 
     sudo nano /etc/zabbix/apache.conf
 
 
-Find and adjust the php_valuesetting as needed:
+Find and adjust the php_value setting as needed:
 
     php_value max_execution_time 300
     php_value memory_limit 128M
@@ -155,15 +152,13 @@ Start Zabbix Server & Apache2
     sudo systemctl start zabbix-server zabbix-agent
 
 
-Verify the Zabbix Server Status;
+Verify the Zabbix Server Status.
 
     sudo systemctl status zabbix-server
 
 
-Configure Zabbix Server Frontend
+**Configure Zabbix Server Frontend**
 
-Access Zabbix Web Interface: Open your Web browser & navigate to:
+Access Zabbix Web Interface: Open your web browser & navigate to:
 
-https://192.168.221.141/Zabbix
-
-http://your-server-ip-or-domain:8080
+http://your-server-ip/zabbix
