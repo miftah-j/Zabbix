@@ -4,6 +4,10 @@
 
 This comprehensive guide will walk us through installing and configuring Zabbix on an Ubuntu 22.04 server. By following these step-by-step instructions, we will have a fully functional  Zabbix monitoring system up and running in no time.
 
+**Prerequisite:**
+ 
+ Ubuntu 20.04 or 22.04
+
 
 ## Update & upgrade the system.
 
