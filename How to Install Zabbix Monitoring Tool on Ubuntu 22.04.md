@@ -2,12 +2,12 @@
 
 # How to Install Zabbix Monitoring Tool on Ubuntu 22.04
 
-Zabbix is an open-source monitoring tool designed for enterprise-level monitoring of IT environments, including servers, networks, applications, and services. It helps organizations proactively monitor and manage their IT infrastructure by collecting metrics, analyzing data, and generating alerts or notifications.
+This comprehensive guide will walk us through installing and configuring Zabbix on an Ubuntu 22.04 server. By following these step-by-step instructions, we will have a fully functional  Zabbix monitoring system up and running in no time.
 
 
 ## Update & upgrade the system.
 
-First Update your system to ensure all packages are up to date
+First, update your system to ensure all packages are up to date
 
     sudo apt update 
     sudo apt upgrade -y
@@ -19,7 +19,7 @@ First Update your system to ensure all packages are up to date
     sudo apt install apache2 -y
 
 
-**Enable Apache to Start on boot**
+**Enable Apache to start on boot**
 
     sudo systemctl enable apache2
     sudo systemctl start apache2
